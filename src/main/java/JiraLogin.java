@@ -14,7 +14,7 @@ public class JiraLogin extends JiraPOM{
     @FindBy(id = "login-form-submit")
     private WebElement loginButton;
 
-    private final String LOGIN_URL = "https://jira.codecool.codecanvas.hu/login.jsp";
+    private final String LOGIN_URL = "https://jira2.codecool.codecanvas.hu/login.jsp";
 
     public JiraLogin(WebDriver driver) {
         super(driver);
