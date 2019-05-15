@@ -16,11 +16,12 @@ public class Driver {
         return driver;
     }
 
-    public Driver() throws MalformedURLException {
-        DesiredCapabilities capability = DesiredCapabilities.chrome();
-        capability.setBrowserName("chrome");
-        capability.setPlatform(Platform.LINUX);
-        driver = new RemoteWebDriver(new URL(System.getenv("testUrl")) , capability);
+    public Driver() {
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--no-sandbox");
+        driver = new ChromeDriver();
     }
 
 }
