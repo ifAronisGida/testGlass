@@ -27,6 +27,14 @@ public class TestGlassWorkflow {
     @Test
     void TestIfWorkflowDocIsAvailable() {
         workflow.open();
-        assertEquals(workflow.getURL(), workflow.getDriver().getCurrentUrl());
+        workflow.navigateToWorkflows();
+        assertTrue(workflow.validateAvailability());
+    }
+
+    @Test
+    void TestIfYouCanCheckPostFunctions() {
+        workflow.open();
+        workflow.seePostFunctions();
+        assertTrue(workflow.validatePostFunctionCount());
     }
 }
