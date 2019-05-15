@@ -9,7 +9,7 @@ public abstract class JiraPOM {
     WebDriver driver;
     WebDriverWait wait;
 
-    private final String BASE_URL = "https://jira.codecool.codecanvas.hu/secure/Dashboard.jspa";
+    private final String BASE_URL = "https://jira2.codecool.codecanvas.hu/secure/Dashboard.jspa";
 
     public WebDriver getDriver() {
         return driver;
