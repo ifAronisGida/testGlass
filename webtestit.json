@@ -1,0 +1,26 @@
+{
+  "defaultTestName": "NewTest",
+  "jiraCredentials": {
+    "host": "jira.codecool.codecanvas.hu",
+    "issueType": "Task",
+    "password": "",
+    "projectKey": "MTP",
+    "protocol": "https",
+    "statusCompletedName": "Done",
+    "statusToDoName": "To Do",
+    "strictSSL": true,
+    "username": ""
+  },
+  "pageObjectFolder": "src/test/java/uitest/pageobjects",
+  "projectName": "testGlass",
+  "rootPackage": "uitest",
+  "targetFramework": "Selenium",
+  "targetLanguage": "java",
+  "testFolder": "src/test/java/uitest/tests",
+  "testrailCredentials": {
+    "host": "",
+    "password": "",
+    "user": ""
+  },
+  "version": "1.1.0"
+}
