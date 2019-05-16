@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class JiraGlassDocPom extends JiraPOM {
 
-    @FindBy(id = "browse_link")
+    @FindBy(xpath = "//*[@id=\"browse_link\"]")
     private WebElement projectsDropdown;
 
     @FindBy(xpath = "//*[@id=\"glass-general-panel\"]/div[1]/div[1]/div/h2/a/span")
@@ -69,8 +69,7 @@ public class JiraGlassDocPom extends JiraPOM {
     }
 
     public void navigateToKecskeProject(){
-        waitAndClick(projectsDropdown);
-        waitClickableAndClick(xKecskeProject);
+        driver.get("https://jira2.codecool.codecanvas.hu/projects/KEC?selectedItem=com.codecanvas.glass:glass");
     }
 
     public void setGlassDocView(){

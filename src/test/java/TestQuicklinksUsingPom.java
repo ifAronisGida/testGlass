@@ -22,7 +22,13 @@ public class TestQuicklinksUsingPom {
     }
 
     @Test
-    void testIfSummaryQuicklinkNavigatesToSettingsOverview(){}
+    void testIfSummaryQuicklinkNavigatesToSettingsOverview(){
+//        pom.navigateToKecskeProject();
+        login.driver.get("https://jira2.codecool.codecanvas.hu/projects/KEC?selectedItem=com.codecanvas.glass:glass");
+        pom.setGlassDocView();
+        pom.openSummaryQuicklink();
+
+    }
 
     @Test
     void testIfComponentsQuicklinkNavigatesToComponentSettings(){}
