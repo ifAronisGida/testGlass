@@ -1,7 +1,10 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class GlassWorkflow extends JiraPOM{
 
@@ -51,11 +54,9 @@ public class GlassWorkflow extends JiraPOM{
     }
 
 
-
     public boolean validatePostFunctionCount() {
-        int postFunctionCountInt = Integer.parseInt(postFunctionCount.getText());
-        System.out.println("pause");
-        return  postFunctionCountInt > 0;
+        int labelCount = Integer.parseInt(postFunctionCount.getText());
+        return labelCount > 0;
     }
 
 }
