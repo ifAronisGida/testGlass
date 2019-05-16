@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class TestQuicklinksUsingPom {
     void setup() {
             login = new JiraLogin(new Driver().getDriver());
             logout = new JiraLogout(login.getDriver());
+            pom = new JiraGlassDocPom(login.driver);
             login.loginToJira(System.getenv("user"), System.getenv("password"));
     }
 
@@ -23,11 +25,15 @@ public class TestQuicklinksUsingPom {
 
     @Test
     void testIfSummaryQuicklinkNavigatesToSettingsOverview(){
-//        pom.navigateToKecskeProject();
-        login.driver.get("https://jira2.codecool.codecanvas.hu/projects/KEC?selectedItem=com.codecanvas.glass:glass");
+        String expectedURL = "https://jira2.codecool.codecanvas.hu/secure/project/EditProject!default.jspa?pid=10006";
+
+        pom.navigateToKecskeProject();
         pom.setGlassDocView();
         pom.openSummaryQuicklink();
+        pom.switchToNewTab();
 
+        String actualURL = pom.getURL();
+        Assertions.assertEquals(expectedURL, actualURL);
     }
 
     @Test

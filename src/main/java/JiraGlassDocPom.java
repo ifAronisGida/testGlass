@@ -3,9 +3,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
+
 public class JiraGlassDocPom extends JiraPOM {
 
-    @FindBy(xpath = "//*[@id=\"browse_link\"]")
+    @FindBy(id = "browse_link")
     private WebElement projectsDropdown;
 
     @FindBy(xpath = "//*[@id=\"glass-general-panel\"]/div[1]/div[1]/div/h2/a/span")
@@ -69,14 +71,22 @@ public class JiraGlassDocPom extends JiraPOM {
     }
 
     public void navigateToKecskeProject(){
-        driver.get("https://jira2.codecool.codecanvas.hu/projects/KEC?selectedItem=com.codecanvas.glass:glass");
+        waitAndClick(projectsDropdown);
+        waitAndClick(kecskeProject);
+//        driver.get("https://jira2.codecool.codecanvas.hu/projects/KEC?selectedItem=com.codecanvas.glass:glass");
     }
 
     public void setGlassDocView(){
+//        waitForElementClickable(glassDocTab);
+//        glassDocTab.click();
         waitAndClick(glassDocTab);
     }
 
     public void openSummaryQuicklink(){
+//        waitForElementClickable(generalTab);
+//        generalTab.click();
+//        waitForElementClickable(summaryQuicklink);
+//        summaryQuicklink.click();
         waitAndClick(generalTab);
         waitAndClick(summaryQuicklink);
     }
@@ -106,5 +116,21 @@ public class JiraGlassDocPom extends JiraPOM {
     public void openPermissionQuickLink(){
         waitAndClick(permissionsTab);
         waitAndClick(permissionsQuicklink);
+    }
+
+    public String getURL(){
+        return driver.getCurrentUrl();
+    }
+
+    public String getCurrentTab(){
+        return driver.getWindowHandle();
+    }
+
+    public void switchToNewTab(){
+        ArrayList<String> newTab = new ArrayList<>(driver.getWindowHandles());
+        String oldTab = getCurrentTab();
+        newTab.remove(oldTab);
+
+        driver.switchTo().window(newTab.get(0));
     }
 }
