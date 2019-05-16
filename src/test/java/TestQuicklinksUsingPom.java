@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.net.MalformedURLException;
+
 public class TestQuicklinksUsingPom {
 
     private JiraLogout logout;
@@ -10,7 +12,7 @@ public class TestQuicklinksUsingPom {
     private JiraGlassDocPom pom;
 
     @BeforeEach
-    void setup() {
+    void setup() throws MalformedURLException {
             login = new JiraLogin(new Driver().getDriver());
             logout = new JiraLogout(login.getDriver());
             pom = new JiraGlassDocPom(login.getDriver());

@@ -2,6 +2,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.net.MalformedURLException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestGlassWorkflow {
@@ -11,7 +13,7 @@ public class TestGlassWorkflow {
     private GlassWorkflow workflow;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws MalformedURLException {
         login = new JiraLogin(new Driver().getDriver());
         logout = new JiraLogout(login.getDriver());
         workflow = new GlassWorkflow(logout.getDriver());

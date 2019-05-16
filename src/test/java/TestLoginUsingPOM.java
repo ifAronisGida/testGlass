@@ -12,7 +12,7 @@ public class TestLoginUsingPOM {
     private JiraLogout logout;
 
     @BeforeEach
-    void setLogin() {
+    void setLogin() throws MalformedURLException {
         login = new JiraLogin(new Driver().getDriver());
         logout = new JiraLogout(login.getDriver());
     }
