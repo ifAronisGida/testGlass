@@ -1,9 +1,10 @@
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.net.MalformedURLException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestQuicklinksUsingPom {
 
@@ -35,7 +36,7 @@ public class TestQuicklinksUsingPom {
         pom.openSummaryQuicklink();
 
         String actualURL = pom.getNewTabUrl(oldUrl);
-        Assertions.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 
     @Test
@@ -49,7 +50,7 @@ public class TestQuicklinksUsingPom {
 
 
         String actualURL = pom.getNewTabUrl(oldUrl);
-        Assertions.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 
     @Test
@@ -62,7 +63,7 @@ public class TestQuicklinksUsingPom {
         pom.openVersionsQuicklink();
 
         String actualURL = pom.getNewTabUrl(oldUrl);
-        Assertions.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 
     @Test
@@ -75,7 +76,7 @@ public class TestQuicklinksUsingPom {
         pom.openPeopleQuicklink();
 
         String actualURL = pom.getNewTabUrl(oldUrl);
-        Assertions.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 
     @Test
@@ -88,7 +89,7 @@ public class TestQuicklinksUsingPom {
         pom.openSchemesQuicklink();
 
         String actualURL = pom.getNewTabUrl(oldUrl);
-        Assertions.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 
     @Test
@@ -101,7 +102,7 @@ public class TestQuicklinksUsingPom {
         pom.openPermissionQuickLink();
 
         String actualURL = pom.getNewTabUrl(oldUrl);
-        Assertions.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 
 
