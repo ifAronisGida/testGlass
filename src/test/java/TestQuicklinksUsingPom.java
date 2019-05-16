@@ -13,7 +13,7 @@ public class TestQuicklinksUsingPom {
     void setup() {
             login = new JiraLogin(new Driver().getDriver());
             logout = new JiraLogout(login.getDriver());
-            pom = new JiraGlassDocPom(login.driver);
+            pom = new JiraGlassDocPom(login.getDriver());
             login.loginToJira(System.getenv("user"), System.getenv("password"));
     }
 
@@ -29,10 +29,10 @@ public class TestQuicklinksUsingPom {
 
         pom.navigateToKecskeProject();
         pom.setGlassDocView();
+        String oldUrl = pom.getCurrentTab();
         pom.openSummaryQuicklink();
-        pom.switchToNewTab();
 
-        String actualURL = pom.getURL();
+        String actualURL = pom.getNewTabUrl(oldUrl);
         Assertions.assertEquals(expectedURL, actualURL);
     }
 
@@ -42,23 +42,24 @@ public class TestQuicklinksUsingPom {
 
         pom.navigateToKecskeProject();
         pom.setGlassDocView();
+        String oldUrl = pom.getCurrentTab();
         pom.openComponentsQuicklink();
-        pom.switchToNewTab();
 
-        String actualURL = pom.getURL();
+
+        String actualURL = pom.getNewTabUrl(oldUrl);
         Assertions.assertEquals(expectedURL, actualURL);
     }
 
     @Test
     void testIfVersionsQuicklinkNavigatesToVersionSettings(){
-        String expectedURL = "https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/KEC/administer-versions?status=unreleased";
+        String expectedURL = "https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/KEC/administer-versions";
 
         pom.navigateToKecskeProject();
         pom.setGlassDocView();
+        String oldUrl = pom.getCurrentTab();
         pom.openVersionsQuicklink();
-        pom.switchToNewTab();
 
-        String actualURL = pom.getURL();
+        String actualURL = pom.getNewTabUrl(oldUrl);
         Assertions.assertEquals(expectedURL, actualURL);
     }
 
@@ -68,10 +69,10 @@ public class TestQuicklinksUsingPom {
 
         pom.navigateToKecskeProject();
         pom.setGlassDocView();
+        String oldUrl = pom.getCurrentTab();
         pom.openPeopleQuicklink();
-        pom.switchToNewTab();
 
-        String actualURL = pom.getURL();
+        String actualURL = pom.getNewTabUrl(oldUrl);
         Assertions.assertEquals(expectedURL, actualURL);
     }
 
@@ -81,10 +82,10 @@ public class TestQuicklinksUsingPom {
 
         pom.navigateToKecskeProject();
         pom.setGlassDocView();
+        String oldUrl = pom.getCurrentTab();
         pom.openSchemesQuicklink();
-        pom.switchToNewTab();
 
-        String actualURL = pom.getURL();
+        String actualURL = pom.getNewTabUrl(oldUrl);
         Assertions.assertEquals(expectedURL, actualURL);
     }
 
@@ -94,10 +95,10 @@ public class TestQuicklinksUsingPom {
 
         pom.navigateToKecskeProject();
         pom.setGlassDocView();
+        String oldUrl = pom.getCurrentTab();
         pom.openPermissionQuickLink();
-        pom.switchToNewTab();
 
-        String actualURL = pom.getURL();
+        String actualURL = pom.getNewTabUrl(oldUrl);
         Assertions.assertEquals(expectedURL, actualURL);
     }
 

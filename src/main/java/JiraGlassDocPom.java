@@ -10,7 +10,7 @@ public class JiraGlassDocPom extends JiraPOM {
     @FindBy(id = "browse_link")
     private WebElement projectsDropdown;
 
-    @FindBy(xpath = "//*[@id=\"glass-general-panel\"]/div[1]/div[1]/div/h2/a/span")
+    @FindBy(xpath = "//*[@id=\"glass-general-panel\"]/div[1]/div[1]/div/h2/a")
     private WebElement summaryQuicklink;
 
     @FindBy(xpath = "//div[@id='glass-general-panel']//ul[@role='tablist']/li[1]/a[@role='tab']")
@@ -22,7 +22,7 @@ public class JiraGlassDocPom extends JiraPOM {
     @FindBy(id = "aui-uid-2")
     private WebElement versionsTab;
 
-    @FindBy(xpath = "//*[@id=\"glass-general-versions-panel\"]/div/h2/a/span")
+    @FindBy(xpath = "//*[@id=\"glass-general-versions-panel\"]/div/h2/a")
     private WebElement versionsQuicklink;
 
     @FindBy(id = "aui-uid-3")
@@ -119,11 +119,14 @@ public class JiraGlassDocPom extends JiraPOM {
         return driver.getWindowHandle();
     }
 
-    public void switchToNewTab(){
+    public String getNewTabUrl(String oldUrl){
         ArrayList<String> newTab = new ArrayList<>(driver.getWindowHandles());
-        String oldTab = getCurrentTab();
+        String oldTab = oldUrl;
         newTab.remove(oldTab);
-
         driver.switchTo().window(newTab.get(0));
+        String url = driver.getCurrentUrl();
+        driver.close();
+        driver.switchTo().window(oldTab);
+        return url;
     }
 }
