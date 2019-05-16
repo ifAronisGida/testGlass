@@ -34,7 +34,7 @@ public class JiraGlassDocPom extends JiraPOM {
     @FindBy(id = "glass-permissions-nav")
     private WebElement permissionsTab;
 
-    @FindBy(id = "//*[@id=\"glass-permissions-panel\"]/div/h2/a/span")
+    @FindBy(xpath = "//*[@id=\"glass-permissions-panel\"]/div/h2/a/span")
     private WebElement permissionsQuicklink;
 
     @FindBy(id = "glass-people-nav")
@@ -73,20 +73,13 @@ public class JiraGlassDocPom extends JiraPOM {
     public void navigateToKecskeProject(){
         waitAndClick(projectsDropdown);
         waitAndClick(kecskeProject);
-//        driver.get("https://jira2.codecool.codecanvas.hu/projects/KEC?selectedItem=com.codecanvas.glass:glass");
     }
 
     public void setGlassDocView(){
-//        waitForElementClickable(glassDocTab);
-//        glassDocTab.click();
         waitAndClick(glassDocTab);
     }
 
     public void openSummaryQuicklink(){
-//        waitForElementClickable(generalTab);
-//        generalTab.click();
-//        waitForElementClickable(summaryQuicklink);
-//        summaryQuicklink.click();
         waitAndClick(generalTab);
         waitAndClick(summaryQuicklink);
     }

@@ -37,19 +37,69 @@ public class TestQuicklinksUsingPom {
     }
 
     @Test
-    void testIfComponentsQuicklinkNavigatesToComponentSettings(){}
+    void testIfComponentsQuicklinkNavigatesToComponentSettings(){
+        String expectedURL = "https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/KEC/administer-components";
+
+        pom.navigateToKecskeProject();
+        pom.setGlassDocView();
+        pom.openComponentsQuicklink();
+        pom.switchToNewTab();
+
+        String actualURL = pom.getURL();
+        Assertions.assertEquals(expectedURL, actualURL);
+    }
 
     @Test
-    void testIfVersionsQuicklinkNavigatesToVersionSettings(){}
+    void testIfVersionsQuicklinkNavigatesToVersionSettings(){
+        String expectedURL = "https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/KEC/administer-versions?status=unreleased";
+
+        pom.navigateToKecskeProject();
+        pom.setGlassDocView();
+        pom.openVersionsQuicklink();
+        pom.switchToNewTab();
+
+        String actualURL = pom.getURL();
+        Assertions.assertEquals(expectedURL, actualURL);
+    }
 
     @Test
-    void testIfPeopleQuicklinkNavigatesToPeopleSettings(){}
+    void testIfPeopleQuicklinkNavigatesToPeopleSettings(){
+        String expectedURL = "https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/KEC/roles";
+
+        pom.navigateToKecskeProject();
+        pom.setGlassDocView();
+        pom.openPeopleQuicklink();
+        pom.switchToNewTab();
+
+        String actualURL = pom.getURL();
+        Assertions.assertEquals(expectedURL, actualURL);
+    }
 
     @Test
-    void testIfSchemesQuicklinkNavigatesToSchemeSettings(){}
+    void testIfSchemesQuicklinkNavigatesToSchemeSettings(){
+        String expectedURL = "https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/KEC/summary";
+
+        pom.navigateToKecskeProject();
+        pom.setGlassDocView();
+        pom.openSchemesQuicklink();
+        pom.switchToNewTab();
+
+        String actualURL = pom.getURL();
+        Assertions.assertEquals(expectedURL, actualURL);
+    }
 
     @Test
-    void testIfPermissionsQuicklinkNavigatesToPermissionSettings(){}
+    void testIfPermissionsQuicklinkNavigatesToPermissionSettings(){
+        String expectedURL = "https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/KEC/permissions";
+
+        pom.navigateToKecskeProject();
+        pom.setGlassDocView();
+        pom.openPermissionQuickLink();
+        pom.switchToNewTab();
+
+        String actualURL = pom.getURL();
+        Assertions.assertEquals(expectedURL, actualURL);
+    }
 
 
 }
